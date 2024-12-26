@@ -35,6 +35,10 @@ int main() {
             case 1:
                 resultado = converterVolume(valor, unidadeOrigem, unidadeDestino); // Exemplo
                 break;
+            case 2: 
+                resultado = converterMassa(valor, unidadeOrigem, unidadeDestino);
+                break;
+
             case 3:
                 resultado = converter_compri(valor, unidadeOrigem, unidadeDestino);
                 break;
@@ -96,9 +100,9 @@ float converter_compri(float valor, char unidadeOrigem, char unidadeDestino) {
     }
 }
 
-// Função implementada: Peso
+// Função implementada: Massa
 
-float convertermassa(float valor, char unidadeOrigem, char unidadeDestino){
+float converterMassa(float valor, char unidadeOrigem, char unidadeDestino){
 
     if (unidadeOrigem == 'q' && unidadeDestino == 'g'){ // Quilos para gramas
        return valor * 1000;
