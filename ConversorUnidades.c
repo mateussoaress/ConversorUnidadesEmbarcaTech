@@ -4,6 +4,7 @@
 
 float converterVolume(float valor, char unidadeOrigem, char unidadeDestino);     // Mateus Soares
 float converter_compri(float, char , char );  //Matheus Capuchinho
+float converterMassa(float valor, char unidadeOrigem, char unidadeDestino);    // Gabriel Oliveira
 
 // Funçao para exibir o menu principal
 void exibirMenu();
@@ -51,6 +52,7 @@ int main() {
 void exibirMenu() {
     printf("\n--- Conversor de Unidades ---\n");
     printf("1. Volume (L, mL, m3)\n");
+    printf("2. Massa Kg(q), T(t), g(g) ");
     printf("3. Comprimento (m, c(cm), l(mm))\n");
 }
 
@@ -91,6 +93,34 @@ float converter_compri(float valor, char unidadeOrigem, char unidadeDestino) {
     } else {
         printf("Conversao invalida. Unidades nao reconhecidas.\n");
         return valor; // Retorna o mesmo valor se a conversao nao for valida
+    }
+}
+
+// Função implementada: Peso
+
+float convertermassa(float valor, char unidadeOrigem, char unidadeDestino){
+
+    if (unidadeOrigem == 'q' && unidadeDestino == 'g'){ // Quilos para gramas
+       return valor * 1000;
+    }
+    else if (unidadeOrigem == 'g' && unidadeDestino == 'q'){ // gramas para quilos
+       return valor/1000;
+    }
+    else if (unidadeOrigem == 'q' && unidadeDestino == 't'){ // quilos para toneladas
+       return valor/1000;
+    }
+    else if (unidadeOrigem == 'g' && unidadeDestino == 't'){ // gramas para toneladas
+       return valor/100000;
+    }
+    else if (unidadeOrigem == 'm' && unidadeDestino == 'M'){ // toneladas para gramas
+       return valor*1000000;
+    }
+    else if (unidadeOrigem == 'm' && unidadeDestino == 'c'){ // toneladas para quilos
+        return valor*1000;
+    }
+     else {
+        printf("Conversao invalida. Unidades nao reconhecidas.\n");
+        return valor; // Retorna o mesmo valor se a conversão não for válida
     }
 }
 
