@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-// DeclaraÃ§Ã£o das funÃ§Ãµes de conversÃ£o
+// Declaração das funçoes de conversão
 
 float converterVolume(float valor, char unidadeOrigem, char unidadeDestino);     // Mateus Soares
 float converterPeso(float valor, char unidadeOrigem, char unidadeDestino);    // Gabriel Oliveira
 
-// FunÃ§Ã£o para exibir o menu principal
+// Função para exibir o menu principal
 void exibirMenu();
 
 int main() {
@@ -34,7 +34,7 @@ int main() {
             case 1:
                 resultado = converterVolume(valor, unidadeOrigem, unidadeDestino); // Exemplo
                 break;
-            case 2:
+            case 3:
                 resultado = converterPeso(valor, unidadeOrigem, unidadeDestino);
                 break;     
             default:
@@ -55,27 +55,27 @@ void exibirMenu() {
 
 }
 
-// FunÃ§Ã£o implementada: Volume
+// Função implementada: Volume
 float converterVolume(float valor, char unidadeOrigem, char unidadeDestino) {
     if (unidadeOrigem == 'L' && unidadeDestino == 'm') { // Litros para mililitros
         return valor * 1000;
     } else if (unidadeOrigem == 'm' && unidadeDestino == 'L') { // Mililitros para litros
         return valor / 1000;
-    } else if (unidadeOrigem == 'L' && unidadeDestino == 'c') { // Litros para metros cÃºbicos
+    } else if (unidadeOrigem == 'L' && unidadeDestino == 'c') { // Litros para metros cúbicos
         return valor / 1000;
-    } else if (unidadeOrigem == 'c' && unidadeDestino == 'L') { // Metros cÃºbicos para litros
+    } else if (unidadeOrigem == 'c' && unidadeDestino == 'L') { // Metros cúbicos para litros
         return valor * 1000;
-    } else if (unidadeOrigem == 'm' && unidadeDestino == 'c') { // Mililitros para metros cÃºbicos
+    } else if (unidadeOrigem == 'm' && unidadeDestino == 'c') { // Mililitros para metros cúbicos
         return valor / 1000000;
-    } else if (unidadeOrigem == 'c' && unidadeDestino == 'm') { // Metros cÃºbicos para mililitros
+    } else if (unidadeOrigem == 'c' && unidadeDestino == 'm') { // Metros cúbicos para mililitros
         return valor * 1000000;
     } else {
         printf("Conversao invalida. Unidades nao reconhecidas.\n");
-        return valor; // Retorna o mesmo valor se a conversÃ£o nÃ£o for vÃ¡lida
+        return valor; // Retorna o mesmo valor se a conversão não for válida
     }
 }
 
-// FunÃ§Ã£o implementada: Comprimento
+// Função implementada: Comprimento
 
 float converterPeso(float valor, char unidadeOrigem, char unidadeDestino){
 
@@ -99,8 +99,8 @@ float converterPeso(float valor, char unidadeOrigem, char unidadeDestino){
     }
      else {
         printf("Conversao invalida. Unidades nao reconhecidas.\n");
-        return valor; // Retorna o mesmo valor se a conversÃ£o nÃ£o for vÃ¡lida
+        return valor; // Retorna o mesmo valor se a conversão não for válida
     }
 }
 
-// FunÃ§Ãµes a serem implementadas:
+// Funções a serem implementadas:
