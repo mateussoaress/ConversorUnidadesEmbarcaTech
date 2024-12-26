@@ -3,6 +3,7 @@
 // Declaração das funções de conversão
 
 float converterVolume(float valor, char unidadeOrigem, char unidadeDestino);     // Mateus Soares
+float converterComprimento(float valor, char unidadeOrigem, char unidadeDestino);    // Gabriel Oliveira
 
 // Função para exibir o menu principal
 void exibirMenu();
@@ -33,6 +34,9 @@ int main() {
             case 1:
                 resultado = converterVolume(valor, unidadeOrigem, unidadeDestino); // Exemplo
                 break;
+            case 2:
+                resultado = converterComprimento(valor, unidadeOrigem, unidadeDestino);
+                break;     
             default:
                 printf("Opcao invalida. Tente novamente.\n");
                 continue;
@@ -47,6 +51,8 @@ int main() {
 void exibirMenu() {
     printf("\n--- Conversor de Unidades ---\n");
     printf("1. Volume (L, mL, m3)\n");
+    printf("2. Comprimento (M, cm, mm)\n ");
+
 }
 
 // Função implementada: Volume
@@ -69,5 +75,32 @@ float converterVolume(float valor, char unidadeOrigem, char unidadeDestino) {
     }
 }
 
-// Funções a serem implementadas:
+// Função implementada: Comprimento
 
+float converterComprimento(float valor, char unidadeOrigem, char unidadeDestino){
+
+    if (unidadeOrigem == 'M' && unidadeDestino == 'c'){ // Metros para centimetros
+       return valor * 100;
+    }
+    else if (unidadeOrigem == 'c' && unidadeDestino == 'M'){ // centimetros para metros
+       return valor/100;
+    }
+    else if (unidadeOrigem == 'M' && unidadeDestino == 'm'){ // Metros para milimetros
+       return valor*1000;
+    }
+    else if (unidadeOrigem == 'c' && unidadeDestino == 'm'){ // centimetros para milimetros
+       return valor*10;
+    }
+    else if (unidadeOrigem == 'm' && unidadeDestino == 'M'){ // milimetros para metros
+       return valor/1000;
+    }
+    else if (unidadeOrigem == 'm' && unidadeDestino == 'c'){
+        return valor/10;
+    }
+     else {
+        printf("Conversao invalida. Unidades nao reconhecidas.\n");
+        return valor; // Retorna o mesmo valor se a conversão não for válida
+    }
+}
+
+// Funções a serem implementadas:
