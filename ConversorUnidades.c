@@ -35,6 +35,10 @@ int main() {
             case 1:
                 resultado = converterVolume(valor, unidadeOrigem, unidadeDestino); // Exemplo
                 break;
+            case 2: 
+                resultado = converterMassa(valor, unidadeOrigem, unidadeDestino);
+                break;
+
             case 3:
                 resultado = converter_compri(valor, unidadeOrigem, unidadeDestino);
                 break;
@@ -96,9 +100,9 @@ float converter_compri(float valor, char unidadeOrigem, char unidadeDestino) {
     }
 }
 
-// Função implementada: Peso
+// Função implementada: Massa
 
-float convertermassa(float valor, char unidadeOrigem, char unidadeDestino){
+float converterMassa(float valor, char unidadeOrigem, char unidadeDestino){
 
     if (unidadeOrigem == 'q' && unidadeDestino == 'g'){ // Quilos para gramas
        return valor * 1000;
@@ -112,10 +116,10 @@ float convertermassa(float valor, char unidadeOrigem, char unidadeDestino){
     else if (unidadeOrigem == 'g' && unidadeDestino == 't'){ // gramas para toneladas
        return valor/100000;
     }
-    else if (unidadeOrigem == 'm' && unidadeDestino == 'M'){ // toneladas para gramas
+    else if (unidadeOrigem == 't' && unidadeDestino == 'g'){ // toneladas para gramas
        return valor*1000000;
     }
-    else if (unidadeOrigem == 'm' && unidadeDestino == 'c'){ // toneladas para quilos
+    else if (unidadeOrigem == 't' && unidadeDestino == 'q'){ // toneladas para quilos
         return valor*1000;
     }
      else {
