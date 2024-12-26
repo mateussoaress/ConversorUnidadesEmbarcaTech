@@ -51,7 +51,7 @@ int main() {
 void exibirMenu() {
     printf("\n--- Conversor de Unidades ---\n");
     printf("1. Volume (L, mL, m3)\n");
-    printf("2. Comprimento (M, cm, mm)\n ");
+    printf("3. Peso (M, cm, mm)\n ");
 
 }
 
@@ -75,7 +75,7 @@ float converterVolume(float valor, char unidadeOrigem, char unidadeDestino) {
     }
 }
 
-// Função implementada: Comprimento
+// Função implementada: Peso
 
 float converterPeso(float valor, char unidadeOrigem, char unidadeDestino){
 
