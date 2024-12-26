@@ -114,10 +114,10 @@ float converterMassa(float valor, char unidadeOrigem, char unidadeDestino){
        return valor/1000;
     }
     else if (unidadeOrigem == 'g' && unidadeDestino == 't'){ // gramas para toneladas
-       return valor*100000;
+       return valor/100000;
     }
     else if (unidadeOrigem == 't' && unidadeDestino == 'g'){ // toneladas para gramas
-       return valor/1000000;
+       return valor*1000000;
     }
     else if (unidadeOrigem == 't' && unidadeDestino == 'q'){ // toneladas para quilos
         return valor*1000;
