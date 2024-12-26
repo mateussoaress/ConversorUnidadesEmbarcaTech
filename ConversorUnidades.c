@@ -1,10 +1,11 @@
 #include <stdio.h>
 
-// Declaração das funções de conversão
+// Declaraçao das funçoes de conversao
 
 float converterVolume(float valor, char unidadeOrigem, char unidadeDestino);     // Mateus Soares
+float converter_compri(float, char , char );  //Matheus Capuchinho
 
-// Função para exibir o menu principal
+// Funçao para exibir o menu principal
 void exibirMenu();
 
 int main() {
@@ -33,6 +34,9 @@ int main() {
             case 1:
                 resultado = converterVolume(valor, unidadeOrigem, unidadeDestino); // Exemplo
                 break;
+            case 3:
+                resultado = converter_compri(valor, unidadeOrigem, unidadeDestino);
+                break;
             default:
                 printf("Opcao invalida. Tente novamente.\n");
                 continue;
@@ -47,27 +51,47 @@ int main() {
 void exibirMenu() {
     printf("\n--- Conversor de Unidades ---\n");
     printf("1. Volume (L, mL, m3)\n");
+    printf("3. Comprimento (m, c(cm), l(mm))\n");
 }
 
-// Função implementada: Volume
+// Funçao implementada: Volume
 float converterVolume(float valor, char unidadeOrigem, char unidadeDestino) {
     if (unidadeOrigem == 'L' && unidadeDestino == 'm') { // Litros para mililitros
         return valor * 1000;
     } else if (unidadeOrigem == 'm' && unidadeDestino == 'L') { // Mililitros para litros
         return valor / 1000;
-    } else if (unidadeOrigem == 'L' && unidadeDestino == 'c') { // Litros para metros cúbicos
+    } else if (unidadeOrigem == 'L' && unidadeDestino == 'c') { // Litros para metros cubicos
         return valor / 1000;
-    } else if (unidadeOrigem == 'c' && unidadeDestino == 'L') { // Metros cúbicos para litros
+    } else if (unidadeOrigem == 'c' && unidadeDestino == 'L') { // Metros cubicos para litros
         return valor * 1000;
-    } else if (unidadeOrigem == 'm' && unidadeDestino == 'c') { // Mililitros para metros cúbicos
+    } else if (unidadeOrigem == 'm' && unidadeDestino == 'c') { // Mililitros para metros cubicos
         return valor / 1000000;
-    } else if (unidadeOrigem == 'c' && unidadeDestino == 'm') { // Metros cúbicos para mililitros
+    } else if (unidadeOrigem == 'c' && unidadeDestino == 'm') { // Metros cubicos para mililitros
         return valor * 1000000;
     } else {
         printf("Conversao invalida. Unidades nao reconhecidas.\n");
-        return valor; // Retorna o mesmo valor se a conversão não for válida
+        return valor; // Retorna o mesmo valor se a conversao nao for valida
     }
 }
 
-// Funções a serem implementadas:
+//Funçao para converter Comprimento
+float converter_compri(float valor, char unidadeOrigem, char unidadeDestino) {
+    if (unidadeOrigem == 'm' && unidadeDestino == 'c') { // Metro para Centimetro
+        return valor * 100;
+    } else if (unidadeOrigem == 'm' && unidadeDestino == 'l') { // Metro para Milimetro
+        return valor * 1000;
+    } else if (unidadeOrigem == 'c' && unidadeDestino == 'l') { // Centimetro para Milimetro
+        return valor * 10;
+    } else if (unidadeOrigem == 'c' && unidadeDestino == 'm') { // Centimetro para Metro
+        return valor / 100;
+    } else if (unidadeOrigem == 'l' && unidadeDestino == 'm') { // Milimetro para Metro
+        return valor / 1000;
+    } else if (unidadeOrigem == 'l' && unidadeDestino == 'c') { // Milimetro para Centimetro
+        return valor / 10;
+    } else {
+        printf("Conversao invalida. Unidades nao reconhecidas.\n");
+        return valor; // Retorna o mesmo valor se a conversao nao for valida
+    }
+}
 
+// Funçoes a serem implementadas:
