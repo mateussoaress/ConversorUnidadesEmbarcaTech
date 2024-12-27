@@ -50,6 +50,10 @@ int main()
             break;
         case 4:
             resultado = converterArmazenamento(valor, unidadeOrigem, unidadeDestino);
+    
+        case 5:
+            resultado = converterTempo(valor, unidadeOrigem, unidadeDestino);
+            
             if (resultado != -1)
             {
                 if (resultado < 1e-10)
