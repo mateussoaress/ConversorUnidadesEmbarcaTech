@@ -6,6 +6,7 @@ double converterVolume(double valor, char unidadeOrigem, char unidadeDestino);  
 double converter_compri(double, char, char);                                          // Matheus Capuchinho
 double converterMassa(double valor, char unidadeOrigem, char unidadeDestino);         // Gabriel Oliveira
 double converterArmazenamento(double valor, char unidadeOrigem, char unidadeDestino); // Gabriel Menezes
+double converterTempo(double valor, char unidadeOrigem, char unidadeDestino); // Sanara Marinho
 
 // Funçao para exibir o menu principal
 void exibirMenu();
@@ -47,8 +48,10 @@ int main()
         case 3:
             resultado = converter_compri(valor, unidadeOrigem, unidadeDestino);
             break;
+            
         case 4:
             resultado = converterArmazenamento(valor, unidadeOrigem, unidadeDestino);
+    
             if (resultado != -1)
             {
                 if (resultado < 1e-10)
@@ -57,6 +60,10 @@ int main()
                     printf("Resultado da conversao: %.10f\n", resultado);
             }
             break;
+
+        case 5:
+            resultado = converterTempo(valor, unidadeOrigem, unidadeDestino);
+            
         default:
             printf("Opcao invalida. Tente novamente.\n");
             continue;
@@ -72,9 +79,10 @@ void exibirMenu()
 {
     printf("\n--- Conversor de Unidades ---\n");
     printf("1. Volume (L, mL, m3)\n");
-    printf("2.  Kg(q), T(t), g(g) ");
+    printf("2. Massa Kg(q), T(t), g(g) \n");
     printf("3. Comprimento (m, c(cm), l(mm))\n");
     printf("4. Armazenamento (b, B, K, M, G, T)\n");
+    printf("5. Tempo (s (segundos), m (minutos), h (horas))\n");
 }
 
 // Funçao implementada: Volume
@@ -228,4 +236,42 @@ double converterArmazenamento(double valor, char unidadeOrigem, char unidadeDest
         printf("Unidade de destino invalida.\n");
         return -1;
     }
+}
+
+// Função implementada: Tempo
+
+double converterTempo(double valor, char unidadeOrigem, char unidadeDestino)
+{
+    if (unidadeOrigem == 's' && unidadeDestino == 'm')
+    { // Segundos para Minutos
+        return valor / 60 ;
+    }
+    else if (unidadeOrigem == 's' && unidadeDestino == 'h')
+    { // Segundos para Horas
+       return valor / 3600;
+    }
+    else if (unidadeOrigem == 'm' && unidadeDestino == 's')
+    { // Minutos para Segundos
+        return valor * 60;
+    }
+    else if (unidadeOrigem == 'm' && unidadeDestino == 'h')
+    { // Minutos para Horas
+        return valor / 60;
+    }
+    else if (unidadeOrigem == 'h' && unidadeDestino == 's')
+    { // Horas para Segundos
+        return valor * 3600;
+    }
+    else if (unidadeOrigem == 'h' && unidadeDestino == 'm')
+    { // Horas para Minutos
+       return valor * 60;
+    }
+    else
+    {
+         printf("Conversao invalida. Unidades nao reconhecidas.\n");
+        return valor; // Retorna o mesmo valor se a conversao nao for valida
+    }
+    
+
+
 }
