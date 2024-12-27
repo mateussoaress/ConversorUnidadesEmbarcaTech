@@ -48,12 +48,10 @@ int main()
         case 3:
             resultado = converter_compri(valor, unidadeOrigem, unidadeDestino);
             break;
+            
         case 4:
             resultado = converterArmazenamento(valor, unidadeOrigem, unidadeDestino);
     
-        case 5:
-            resultado = converterTempo(valor, unidadeOrigem, unidadeDestino);
-            
             if (resultado != -1)
             {
                 if (resultado < 1e-10)
@@ -62,6 +60,10 @@ int main()
                     printf("Resultado da conversao: %.10f\n", resultado);
             }
             break;
+
+        case 5:
+            resultado = converterTempo(valor, unidadeOrigem, unidadeDestino);
+            
         default:
             printf("Opcao invalida. Tente novamente.\n");
             continue;
